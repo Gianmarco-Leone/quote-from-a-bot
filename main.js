@@ -38,24 +38,30 @@ FUNZIONI
 // Utilizzo della funzione async così da poter usare successivamente "await"
 async function playCharacter(nameCharacter) {
     loaderEl.classList.remove("loading-hidden");
-    const action = getRandomAction();
-    const temperature = 0.7;
+
+    // Due valori che mi servono per stampare il testo in fondo nella modale
+    const action = getRandomAction(); // Azione random presa da un array statico
+    const temperature = 0.7; // Randomicità risposta
 
     // RISPOSTA API
     const response = await fetch(API_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}` 
+            "Authorization": `Bearer ${API_KEY}` // Autorizzazione per ricevere risposta
         },
+        // Voglio ricevere una stringa dal JSON
         body: JSON.stringify({
+            // passo variabile MODEL come da doc
             model: MODEL,
+            // questo rappresenta il messaggio che invio a ChatGPT
             messages: [
                 {
                     role: "user",
                     content: `Sei ${nameCharacter} e ${action} con un massimo di 100 caratteri senza mai uscire dal tuo personaggio`
                 }
             ],
+            // randomicità uguale a quella dichiarata prima
             temperature: temperature
         })
     })
@@ -63,7 +69,9 @@ async function playCharacter(nameCharacter) {
     // Leggo la risposta in JSON
     const data = await response.json();
 
+    // salvo contenuto in una variabile
     const modalMessage = data.choices[0].message.content;
+    // scrivo nel DOM
     modalContentEl.innerHTML = `
         <h2>${nameCharacter}</h2>
         <p>${modalMessage}</p>
@@ -74,6 +82,7 @@ async function playCharacter(nameCharacter) {
     modalEl.classList.remove("modal-hidden");
 }
 
+// Funzione per generare un'azione randomica da un array statico
 function getRandomAction() {
     const actions = [
         'salutare nel tuo modo più iconico',
@@ -84,7 +93,7 @@ function getRandomAction() {
         'scrivere la tua bio di linkedin'
     ];
 
-    const indexRandom = Math.floor(Math.random() * actions.length); // da 0 a 5
+    const indexRandom = Math.floor(Math.random() * actions.length);
 
     return actions[indexRandom];
 }
