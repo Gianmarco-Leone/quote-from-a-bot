@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./style/style.css">
 
     <!-- SCRIPT -->
-    <link rel="stylesheet" href="">
+    <script type="text/javascript" src="./main.js" defer></script>
 </head>
 
 <body>
@@ -35,52 +35,53 @@
         <section class="container">
 
             <div class="characters">
-                <div class="character">
-                    <img src="./images/ash-ketchum.png" alt="Homer Simpson">
+
+                <div class="character" data-character="ash-ketchum">
+                    <img src="./images/ash-ketchum.png" alt="ash-ketchum">
                 </div>
 
-                <div class="character">
-                    <img src="./images/batman.png" alt="Homer Simpson">
+                <div class="character" data-character="batman">
+                    <img src="./images/batman.png" alt="batman">
                 </div>
 
-                <div class="character">
+                <div class="character" data-character="homer-simpson">
                     <img src="./images/homer-simpson.png" alt="Homer Simpson">
                 </div>
 
-                <div class="character">
-                    <img src="./images/hermione-granger.png" alt="Homer Simpson">
+                <div class="character" data-character="hermione-granger">
+                    <img src="./images/hermione-granger.png" alt="hermione-granger">
                 </div>
 
-                <div class="character">
-                    <img src="./images/gandalf.png" alt="Homer Simpson">
+                <div class="character" data-character="gandalf">
+                    <img src="./images/gandalf.png" alt="gandalf">
                 </div>
 
-                <div class="character">
-                    <img src="./images/harley-quinn.png" alt="Homer Simpson">
+                <div class="character" data-character="harley-quinn">
+                    <img src="./images/harley-quinn.png" alt="harley-quinn">
                 </div>
-                <div class="character">
-                    <img src="./images/shrek.png" alt="Homer Simpson">
-                </div>
-
-                <div class="character">
-                    <img src="./images/barbie.png" alt="Homer Simpson">
+                <div class="character" data-character="shrek">
+                    <img src="./images/shrek.png" alt="shrek">
                 </div>
 
-                <div class="character">
-                    <img src="./images/minion.png" alt="Homer Simpson">
+                <div class="character" data-character="barbie">
+                    <img src="./images/barbie.png" alt="barbie">
+                </div>
+
+                <div class="character" data-character="minion">
+                    <img src="./images/minion.png" alt="minion">
                 </div>
             </div>
 
         </section>
 
-        <!-- INIZIO LOADING -->
-        <div class="loading loading-hidden">
-            <img src="./images/1_CsJ05WEGfunYMLGfsT2sXA.gif" alt="Loader">
+        <!-- INIZIO LOADER -->
+        <div id="loader" class="loading loading-hidden">
+            <img src="./images/loader.gif" alt="Loader">
         </div>
-        <!-- FINE LOADING -->
+        <!-- FINE LOADER -->
 
         <!-- INIZIO MODAL -->
-        <div class="modal modal-hidden">
+        <div id="modal" class="modal modal-hidden">
             <div class="modal-box">
                 <div class="modal-close">
                     <img src="./images/close.svg" />
